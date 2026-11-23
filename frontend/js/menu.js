@@ -3,7 +3,7 @@
 
 // ---------- CONFIGURAÇÃO ----------
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://soundy-bd-mysql.onrender.com';
 
 const userId = localStorage.getItem('userId');
 

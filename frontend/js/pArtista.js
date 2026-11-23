@@ -1,5 +1,5 @@
 // artista/pArtista.js
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://soundy-bd-mysql.onrender.com';
 const DEFAULT_COVER = '../imagens/Logo.png';
 
 const userId = localStorage.getItem('userId');

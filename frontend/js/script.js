@@ -1,4 +1,4 @@
-const API_URL = 'http://localhost:3000';
+const API_URL = 'https://soundy-bd-mysql.onrender.com';
 
 // se já tem userId salvo, o usuário já está logado: manda direto pro menu
 const userId = localStorage.getItem('userId');

@@ -1,7 +1,7 @@
 (function () {
 
     const API_URL =
-        'http://localhost:3000';
+        'https://soundy-bd-mysql.onrender.com';
 
     const ROOT =
         new URL(
