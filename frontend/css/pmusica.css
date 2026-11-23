@@ -1,0 +1,281 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+/* Layout geral da página */
+.musica-page {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-bottom: 15%;
+}
+
+.voltar-musica {
+    position: absolute;
+    top: 90px;   /* ajuste esse valor conforme a altura da sua navbar */
+    left: 35px;
+    color: white;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+.mensagem-musica {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 14px;
+    margin: 5px 0 15px;
+}
+
+.musica-conteudo {
+    width: min(700px, 90vw);
+    min-height: calc(100vh - 170px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+/* Capa */
+.capa-container {
+    width: 390px;
+    height: 390px;
+    max-width: 70vw;
+    max-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.capa-musica {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+/* Info da música acima da capa — oculto por escolha do usuário */
+.musica-detalhes {
+    display: none;
+}
+
+.musica-detalhes h1 {
+    margin: 0;
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.musica-detalhes p {
+    margin: 6px 0 0;
+}
+
+#artist {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 16px;
+}
+
+#album {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 14px;
+}
+
+/* Player fixo */
+.player-musica {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 18px 20px;
+    background: transparent;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 20px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 1);
+    z-index: 100;
+    color: #fff;
+    margin-bottom: 2%;
+}
+
+.player-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 2px;
+    min-width: 150px;
+    max-width: 100%;
+    overflow: hidden;
+}
+
+#playerNome {
+    font-size: 15px;
+    font-weight: 600;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+#playerArtista {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+#playerAlbum {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.5);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
+}
+
+.player-progresso-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.player-tempo {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.7);
+    min-width: 32px;
+    text-align: center;
+}
+
+.player-progresso,
+.player-volume {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    border-radius: 2px;
+    background: rgba(255, 255, 255, 0.25);
+    outline: none;
+    cursor: pointer;
+}
+
+.player-progresso::-webkit-slider-thumb,
+.player-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+}
+
+.player-controles {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.player-botao {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    border: none;
+    background: #fff;
+    color: #111;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    flex-shrink: 0;
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.player-botao:hover {
+    transform: scale(1.08);
+}
+
+.player-botao:active {
+    transform: scale(0.95);
+}
+
+.player-volume-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    width: 100%;
+}
+
+.volume-icone {
+    font-size: 14px;
+}
+
+/* Fundo animado com ondas */
+.fundo {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+#ondas {
+    position: absolute;
+    width: 100%;
+    height: 150%;
+    left: 0;
+    top: 0;
+}
+
+/* Responsivo */
+@media (max-width: 800px) {
+    .player-musica {
+        width: 85%;
+    }
+    .player-volume,
+    .volume-icone {
+        display: none;
+    }
+    .player-info {
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 500px) {
+    .player-musica {
+        width: calc(100% - 30px);
+        bottom: 12px;
+        padding: 12px 14px;
+        gap: 10px;
+    }
+    .player-info {
+        min-width: 80px;
+    }
+}

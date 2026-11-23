@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Soundy - Playlists</title>
+
+    <link rel="icon" type="image/png" href="../imagens/Logo.png">
+    <link rel="stylesheet" href="../css/menu.css">
+    <script src="../js/scriptondas.js" defer></script>
+    <script src="../js/navbar.js" defer></script>
+    <link rel="stylesheet" href="../css/playlist.css">
+
+    <style>
+
+    </style>
+
+</head>
+
+<body>
+    <div id="navbar"></div>
+
+    <main class="playlists-page">
+
+        <h1>Playlists</h1>
+
+        <p class="subtitulo">
+            Suas coleções favoritas
+        </p>
+
+<button class="criar-playlist" id="openCreateBtn" type="button">
+    + Criar playlist
+</button>
+
+        <!-- os cards são criados pelo pPlaylists.js a partir das playlists da API -->
+        <div class="playlists-grid" id="playlistGrid"></div>
+
+        <p id="message" role="status"></p>
+
+    </main>
+    <dialog id="createDialog" aria-labelledby="createTitle">
+        <form id="createForm">
+            <h2 id="createTitle">Nova playlist</h2>
+
+            <label>
+                Nome
+                <input id="nameInput" type="text" maxlength="100" required autocomplete="off">
+            </label>
+
+            <label>
+                Capa (opcional)
+                <input id="coverInput" type="file" accept="image/png,image/jpeg,image/webp,image/gif">
+            </label>
+
+            <label class="check">
+                <input id="publicInput" type="checkbox">
+                Playlist pública
+            </label>
+
+            <p id="formMessage" role="alert"></p>
+
+            <div class="acoes">
+                <button id="cancelBtn" type="button">Cancelar</button>
+                <button id="submitBtn" type="submit">Criar playlist</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="fundo">
+
+        <svg
+            id="ondas"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid slice">
+
+            <defs>
+
+                <linearGradient
+                    id="grad"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0">
+
+                    <stop
+                        offset="50%"
+                        stop-color="#fff">
+
+                    <stop
+                        offset="100%"
+                        stop-color="#fff">
+
+                </linearGradient>
+
+            </defs>
+
+        </svg>
+
+    </div>
+
+
+<script src="../js/api.js"></script>
+<script src="pPlaylists.js"></script>
+
+</body>
+</html>

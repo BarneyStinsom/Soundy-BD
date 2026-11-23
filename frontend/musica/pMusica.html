@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="../imagens/Logo.png">
+
+    <title>Soundy</title>
+
+    <link rel="stylesheet" href="../css/menu.css">
+    <link rel="stylesheet" href="../css/pmusica.css">
+
+    <script src="../js/navbar.js" defer></script>
+    <script src="../js/scriptondas.js" defer></script>
+</head>
+<body>
+
+    <div id="navbar"></div>
+
+    <!-- Conteúdo principal: capa + info da música -->
+    <main class="musica-page">
+        <a id="backLink" class="voltar-musica" href="../menu/menu.html">← Voltar</a>
+        <p id="message" class="mensagem-musica" role="status"></p>
+
+        <section id="content" class="musica-conteudo" hidden>
+            <div class="capa-container">
+                <img id="cover" class="capa-musica" src="" alt="Capa da música" hidden>
+            </div>
+            <div class="musica-detalhes">
+                <h1 id="title"></h1>
+                <p id="artist"></p>
+                <p id="album"></p>
+            </div>
+            <audio id="player" preload="metadata"></audio>
+        </section>
+    </main>
+
+    <!-- Player fixo na parte inferior -->
+    <div class="player-musica">
+        <div class="player-info">
+            <strong id="playerNome">Nenhuma música tocando</strong>
+            <span id="playerArtista">Soundy</span>
+            <span id="playerAlbum">Álbum desconhecido</span>
+        </div>
+
+        <div class="player-progresso-container">
+            <span id="tempoAtual" class="player-tempo">0:00</span>
+            <input type="range" id="barraProgresso" class="player-progresso" value="0" min="0" step="1">
+            <span id="tempoTotal" class="player-tempo">0:00</span>
+        </div>
+
+        <div class="player-controles">
+            <button id="bottomPlayPauseBtn" class="player-botao" type="button">▶</button>
+        </div>
+
+        <div class="player-volume-container">
+            <span class="volume-icone">🔊</span>
+            <input type="range" id="barraVolume" class="player-volume" min="0" max="1" step="0.01" value="1">
+        </div>
+    </div>
+
+    <!-- Fundo animado -->
+    <div class="fundo">
+        <svg id="ondas" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+            <defs>
+                <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+                    <stop offset="50%" stop-color="#fff"></stop>
+                    <stop offset="100%" stop-color="#fff"></stop>
+                </linearGradient>
+            </defs>
+        </svg>
+    </div>
+
+    <script src="../js/api.js"></script>
+    <script src="pMusica.js"></script>
+    
+</body>
+</html>

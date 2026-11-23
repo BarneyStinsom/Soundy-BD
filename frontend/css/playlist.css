@@ -1,0 +1,234 @@
+ @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&display=swap');
+
+.playlists-page {
+            position: relative;
+            z-index: 2;
+            padding: 40px 7%;
+            color: white;
+        }
+
+        .playlists-page h1 {
+            margin: 0;
+            font-size: 42px;
+            font-weight: 700;
+        }
+
+        .playlists-page .subtitulo {
+            margin-top: 8px;
+            margin-bottom: 35px;
+            color: #bdb8c9;
+            font-size: 17px;
+        }
+
+        .playlists-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .playlist-card {
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .playlist-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .playlist-capa {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            border-radius: 16px;
+            display: block;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.35);
+        }
+
+        .playlist-card h2 {
+            margin: 14px 2px 4px;
+            font-size: 19px;
+            color: white;
+        }
+
+        .playlist-card p {
+            margin: 0 2px;
+            color: #aaa5b5;
+            font-size: 14px;
+        }
+
+        @media (max-width: 900px) {
+            .playlists-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 550px) {
+            .playlists-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .playlists-page {
+                padding: 30px 6%;
+            }
+        }
+
+        .criar-playlist {
+        margin: 0 0 30px 0;
+        padding: 12px 22px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        color: white;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: 0.2s;
+        border: 1px solid #ff5f96;
+}
+
+.criar-playlist:hover {
+    background: #ff5f96;
+}
+
+        /* ----- modal de criar playlist ----- */
+       #createDialog {
+    margin: auto;
+    inset: 0;
+    padding: 0;
+    width: 340px;
+    max-width: 90vw;
+    border-radius: 50px;
+    color: #fff;
+    letter-spacing: 0.5px;
+    font-family: 'Space Grotesk', sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        rgba(255, 255, 255, 0.048) 0%,
+        rgba(255, 255, 255, 0.027) 50%,
+        rgba(255, 255, 255, 0.055) 100%
+    );
+    backdrop-filter: saturate(170%);
+    -webkit-backdrop-filter: saturate(170%);
+
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25),
+        inset 0 1px 1px rgba(255, 255, 255, 0.4);
+}
+
+#createDialog::backdrop {
+    background: rgba(0, 0, 0, .45);
+    backdrop-filter: blur(4px);
+}
+
+#createForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+}
+
+#createForm h2 { margin: 0 0 4px; }
+
+#createForm label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    font-size: .9rem;
+    font-weight: 600;
+}
+
+#createForm input[type="text"],
+#createForm input[type="file"] {
+    width: 100%;
+    max-width: 260px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #000;
+    font: inherit;
+    font-weight: 400;
+    box-sizing: border-box;
+}
+
+/* o campo de arquivo fica sobre o vidro, então o texto precisa ser branco */
+#createForm input[type="file"] {
+    color: #fff;
+    font-size: .8rem;
+}
+
+#createForm input[type="file"]::file-selector-button {
+    padding: 6px 10px;
+    margin-right: 8px;
+    border-radius: 10px;
+    border: 1px solid #000;
+    background: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+#createForm .check {
+    flex-direction: row;
+    justify-content: center;
+    font-weight: 400;
+}
+
+#createForm .acoes {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    width: 100%;
+}
+
+#createForm .acoes button {
+    flex: 1;
+    max-width: 130px;
+    padding: 10px;
+    border-radius: 15px;
+    border: 1px solid #000;
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+#formMessage {
+    margin: 0;
+    min-height: 1em;
+    font-size: .9rem;
+    color: #ff8a8a; /* o vermelho antigo ficava apagado no fundo escuro */
+}
+
+/* ----- botão de excluir playlist (canto da capa) ----- */
+.playlist-excluir {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: rgba(0, 0, 0, 0.55);
+    color: #fff;
+    font-size: 15px;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity 0.2s ease, background 0.2s ease;
+}
+
+.playlist-card:hover .playlist-excluir,
+.playlist-card:focus-within .playlist-excluir,
+.playlist-excluir:focus-visible {
+    opacity: 1;
+}
+
+.playlist-excluir:hover { background: #c0392b; }
+
+/* celular não tem hover: deixa o botão sempre visível */
+@media (hover: none) {
+    .playlist-excluir { opacity: 1; }
+}

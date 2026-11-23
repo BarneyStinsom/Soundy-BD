@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="perfil.css">
+    <title>Soundy - Perfil</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="../imagens/Logo.png"
+    >
+
+    <!-- Mesmo estilo do menu -->
+    <link
+        rel="stylesheet"
+        href="../css/menu.css"
+    >
+
+    <!-- Estilo específico do perfil -->
+    <link
+        rel="stylesheet"
+        href="../css/perfil.css"
+    >
+
+    <!-- Ondas -->
+    <script
+        src="../js/scriptondas.js"
+        defer
+    ></script>
+
+    <!-- Navbar -->
+    <script
+        src="../js/navbar.js"
+        defer
+    ></script>
+
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVBAR
+    ========================== -->
+
+    <div id="navbar"></div>
+
+
+    <!-- =========================
+         CONTEÚDO DO PERFIL
+    ========================== -->
+
+    <main class="perfil-container">
+
+        <div class="perfil-card">
+
+            <!-- CABEÇALHO -->
+
+            <div class="perfil-header">
+
+                <div class="foto-container">
+
+                    <img
+                        id="userPhoto"
+                        src=""
+                        alt="Foto de perfil"
+                    >
+
+                    <!-- Botão para trocar foto -->
+
+                    <label
+                        for="profilePhotoInput"
+                        class="btn-trocar-foto"
+                    >
+                        Trocar foto
+                    </label>
+
+                    <input
+                        type="file"
+                        id="profilePhotoInput"
+                        accept="image/png,image/jpeg,image/webp,image/gif"
+                        hidden
+                    >
+
+                </div>
+
+
+                <h1 id="userName">
+                    Carregando...
+                </h1>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="perfil-info">
+
+                <div class="info-item">
+
+                    <span class="info-label">
+                        E-mail
+                    </span>
+
+                    <span
+                        id="userEmail"
+                        class="info-value"
+                    ></span>
+
+                </div>
+
+            </div>
+
+
+            <!-- AÇÕES -->
+
+            <div class="perfil-acoes">
+
+                <button
+                    id="logoutBtn"
+                    class="btn-sair"
+                    type="button"
+                >
+                    Sair
+                </button>
+
+
+                <button
+                    id="deleteAccountBtn"
+                    class="btn-excluir"
+                    type="button"
+                >
+                    Excluir conta
+                </button>
+
+            </div>
+
+
+            <!-- ERROS / MENSAGENS -->
+
+            <p id="pageError"></p>
+
+        </div>
+
+    </main>
+
+
+    <!-- =========================
+         FUNDO COM ONDAS
+    ========================== -->
+
+    <div class="fundo">
+
+        <svg
+            id="ondas"
+            viewBox="0 0 1600 900"
+            preserveAspectRatio="xMidYMid slice"
+        >
+
+            <defs>
+
+                <linearGradient
+                    id="grad"
+                    x1="0"
+                    y1="0"
+                    x2="1"
+                    y2="0"
+                >
+
+                    <stop
+                        offset="50%"
+                        stop-color="#fff"
+                    >
+
+                    <stop
+                        offset="100%"
+                        stop-color="#fff"
+                    >
+
+                </linearGradient>
+
+            </defs>
+
+        </svg>
+
+    </div>
+
+
+    <!-- JS DO PERFIL -->
+
+    <script
+        src="../js/pUser.js"
+    ></script>
+
+</body>
+
+</html>

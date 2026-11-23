@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soundy</title>
+    <link rel="icon" type="image/png" href="imagens/Logo.png">
+    <link rel="stylesheet" href="css/style.css">
+        <script src="js/script.js" defer></script>
+        <script src="js/scriptindex.js" defer></script>
+</head>
+<body>
+
+    <div class="fundo">
+  <svg id="ondas" viewBox="0 0 1600 900" preserveAspectRatio="xMidYMid slice">
+    <defs>
+      <linearGradient id="grad" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="50%"  stop-color="#fff"/>
+        <stop offset="100%" stop-color="#fff"/>
+      </linearGradient>
+    </defs>
+  </svg>
+</div>
+
+    <main class="auth-container">
+
+        <img class="logo1" src="imagens/Logo.png" alt="Logo Soundy">
+
+        <div class="logginglass">
+            <svg style="position:absolute; width:0; height:0;">
+            <filter id="liquid-distort">
+             <feTurbulence type="fractalNoise" baseFrequency="0.008 0.008" numOctaves="2" seed="5" result="noise"/>
+            <feDisplacementMap in="SourceGraphic" in2="noise" scale="25" xChannelSelector="R" yChannelSelector="G"/>
+            </filter>
+            </svg>
+        <!-- LOGIN -->
+        <section id="loginSection">
+
+            <h2>Entrar</h2>
+
+            <form id="loginForm">
+
+                <input
+                    id="loginEmail"
+                    type="email"
+                    placeholder="E-mail"
+                    required
+                >
+
+                <input
+                    id="loginPassword"
+                    type="password"
+                    placeholder="Senha"
+                    required
+                >
+                <button class="buttonlogin" type="submit">
+                    Entrar
+                </button>
+
+            </form>
+
+            <p id="loginError"></p>
+
+            <p>
+                Não tem uma conta?
+                <a class="criar" id="showRegister" type="button">
+                    Criar conta
+                </a>
+            </p>
+
+        </section>
+
+
+        <!-- CADASTRO -->
+        <section id="registerSection" style="display: none;">
+
+            <h2>Criar conta</h2>
+
+            <form id="registerForm">
+
+                <input
+                    id="registerName"
+                    type="text"
+                    placeholder="Nome"
+                    required
+                >
+
+                <input
+                    id="registerEmail"
+                    type="email"
+                    placeholder="E-mail"
+                    required
+                >
+
+                <input
+                    id="registerPassword"
+                    type="password"
+                    placeholder="Senha"
+                    required
+                >
+                <button  class="buttonlogin" type="submit">
+                    Criar conta
+                </button>
+
+            </form>
+
+            <p id="registerError"></p>
+
+            <p>
+                Já tem uma conta?
+                <a class="criar" id="showLogin" type="button">
+                    Entrar
+                </a>
+            </p>
+
+        </section>
+        </div>
+
+    </main>
+</body>
+
+</html>
